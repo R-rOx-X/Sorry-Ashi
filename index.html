@@ -52,7 +52,6 @@
       z-index: 2;
     }
 
-    /* Angled Moving 35mm Background Film Reels */
     .film-container {
       position: fixed;
       inset: -20% -25%;
@@ -183,7 +182,6 @@
     .sticker-flower { top: 50%; left: 8px; font-size: 1.6rem; --rot: 18deg; }
     .sticker-heart { top: 48%; right: 10px; font-size: 1.8rem; --rot: -8deg; }
 
-    /* Envelope Opening Screen */
     #envelopeScreen {
       display: flex;
       flex-direction: column;
@@ -254,7 +252,6 @@
       margin-top: 4px;
     }
 
-    /* Main Glass Card */
     .card {
       background: var(--card-bg);
       backdrop-filter: blur(10px);
@@ -290,7 +287,6 @@
       z-index: 20;
     }
 
-    /* Spotify Widget with Soft Interactive Float */
     .spotify-player {
       display: flex;
       align-items: center;
@@ -413,7 +409,6 @@
       margin-left: 2px;
     }
 
-    /* Expanded Spotify Modal */
     .spotify-expanded-modal {
       display: none;
       position: fixed;
@@ -622,7 +617,6 @@
       font-weight: 700;
     }
 
-    /* INTERACTIVE JIGGLE FOR STICKY NOTES */
     .memories-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -645,7 +639,6 @@
       display: inline-block;
     }
 
-    /* Individual staggered playful jiggles */
     .memory-tab:nth-child(1) { animation: playfulJiggle1 3.2s ease-in-out infinite; }
     .memory-tab:nth-child(2) { animation: playfulJiggle2 2.8s 0.4s ease-in-out infinite; }
     .memory-tab:nth-child(3) { animation: playfulJiggle3 3.5s 0.8s ease-in-out infinite; }
@@ -679,7 +672,6 @@
       font-weight: 700;
     }
 
-    /* ACTION BUTTONS WITH JIGGLE AND PULSE */
     .btn-container {
       display: flex;
       justify-content: center;
@@ -702,7 +694,6 @@
       user-select: none;
     }
 
-    /* "Yes" Button Heartbeat + Playful Wobble */
     .btn-yes {
       background: linear-gradient(135deg, #2ec4b6, #0081a7);
       color: #ffffff;
@@ -724,7 +715,6 @@
       transform: scale(0.95) !important;
     }
 
-    /* "No" Button Playful Subtle Shiver */
     .btn-no {
       background: rgba(234, 227, 219, 0.88);
       color: #4b443f;
@@ -913,13 +903,11 @@
 </head>
 <body>
 
-  <!-- Audio Element (song.mp3) -->
   <audio id="bgSong" src="song.mp3" preload="auto"></audio>
 
   <div class="noise-overlay"></div>
   <canvas id="confettiCanvas"></canvas>
 
-  <!-- Angled Moving 35mm Background Film Reels -->
   <div class="film-container">
     <div class="film-strip">
       <div class="sprockets sprockets-top"></div>
@@ -928,18 +916,16 @@
     </div>
     <div class="film-strip">
       <div class="sprockets sprockets-top"></div>
-      <div class="sprockets-bottom"></div>
+      <div class="sprockets sprockets-bottom"></div>
       <div class="film-track track-reverse" id="filmTrackBottom"></div>
     </div>
   </div>
 
-  <!-- Stickers -->
   <div class="sticker sticker-txt sticker-missyou">I miss you ❤️</div>
   <div class="sticker sticker-txt sticker-sorry">so sorry 🥺</div>
   <div class="sticker sticker-flower">🌸</div>
   <div class="sticker sticker-heart">💖</div>
 
-  <!-- Stage 1: Interactive Wax Seal Envelope -->
   <div id="envelopeScreen" onclick="openApologyLetter()">
     <div class="envelope-box">
       <div class="envelope-seal">💌</div>
@@ -948,13 +934,11 @@
     </div>
   </div>
 
-  <!-- Stage 2: Central Translucent Frosted Glass Card -->
   <div class="card" id="mainCard">
     <div class="washi-tape"></div>
 
     <div id="askScreen">
       
-      <!-- SPOTIFY MINI PLAYER WIDGET (TAP TO EXPAND) -->
       <div class="spotify-player" id="spotifyWidget" title="Tap to expand Spotify player">
         <div class="spotify-left">
           <img src="photo6.jpeg" class="spotify-album-art" alt="Album" onerror="this.src='photo1.jpeg'" />
@@ -981,7 +965,6 @@
         and every little memory keeps leading straight back to you. I miss you more than words can say.
       </p>
 
-      <!-- Mini Interactive Sticky Notes with Jiggles -->
       <div class="memories-grid">
         <div class="memory-tab" onclick="popWavyMemory('photo1.jpeg', 'I miss that gorgeous smile 🌸')">✨ Your Smile</div>
         <div class="memory-tab" onclick="popWavyMemory('photo6.jpeg', 'our names look beautiful toogether !! ❤️')">Us ❤️</div>
@@ -1001,7 +984,6 @@
       </div>
     </div>
 
-    <!-- Celebration Screen -->
     <div class="celebration-screen" id="celebrationScreen">
       <div class="polaroid-frame">
         <img id="polaroidImg" src="photo1.jpeg" alt="Our Memory" />
@@ -1017,7 +999,6 @@
     </div>
   </div>
 
-  <!-- FULL EXPANDED SPOTIFY PLAYER VIEW -->
   <div class="spotify-expanded-modal" id="spotifyModal">
     <div class="spotify-expanded-card" id="spotifyCard">
       <div class="expanded-header">
@@ -1051,7 +1032,6 @@
     </div>
   </div>
 
-  <!-- Wavy Polaroid Popup Overlay -->
   <div class="wavy-pop-overlay" id="wavyOverlay">
     <div class="wavy-polaroid" id="wavyPolaroidBox">
       <img id="wavyPopImg" src="" alt="Memory" />
@@ -1059,7 +1039,6 @@
     </div>
   </div>
 
-  <!-- Photo Lightbox Modal -->
   <div class="lightbox-modal" id="lightboxModal">
     <div class="lightbox-card">
       <button class="lightbox-close" id="lightboxClose">&times;</button>
@@ -1293,7 +1272,6 @@
       count++;
       if (sizeMultiplier < 1.45) sizeMultiplier += 0.1;
       
-      // Stop idle animation once it starts dodging so coords work smoothly
       noBtn.style.animation = 'none';
       yesBtn.style.transform = `scale(${sizeMultiplier})`;
       noBtn.innerText = funnyDodges[count % funnyDodges.length];
@@ -1314,7 +1292,7 @@
       askScreen.style.display = 'none';
       celebrationScreen.style.display = 'block';
       const outboundMessage = encodeURIComponent("Hey... I saw your website and heard Meri Banogi Kya. I forgive you. Let's talk right now ❤️");
-      document.getElementById('whatsappLink').href = `https://wa.me/919617620277?text=${outboundMessage}`;
+      document.getElementById('whatsappLink').href = `https://api.whatsapp.com/send?phone=919617620277&text=${outboundMessage}`;
       launchConfetti();
     });
 
